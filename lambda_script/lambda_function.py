@@ -18,7 +18,7 @@ def lambda_handler(event, context):
     for i in clause_to:
         
         if re.search(i, str(event)):
-            response = sns.publish(TopicArn='arn:aws:sns:us-east-1:611569517519:alleventsns',Message = event)
+            response = sns.publish(TopicArn='arn:aws:sns:us-east-1:<AccountId>:alleventsns',Message = event) #Configure your account ID
             print(response)
         else:
             print("Nothing to look here")

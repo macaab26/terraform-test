@@ -43,7 +43,7 @@ resource "aws_sns_topic" "alleventsns" {
 resource "aws_sns_topic_subscription" "snstoemail_email-target" {
   topic_arn = aws_sns_topic.alleventsns.arn
   protocol  = "email"
-  endpoint  = "macaab26@gmail.com"
+  endpoint  = "example@gmail.com" #Configure your email direction
 }
 
 resource "aws_sns_topic_policy" "default" {
@@ -74,7 +74,7 @@ data "aws_iam_policy_document" "sns_topic_policy" {
       variable = "AWS:SourceOwner"
 
       values = [
-        611569517519,
+        <AccountID>, #Configure your account ID
       ]
     }
 

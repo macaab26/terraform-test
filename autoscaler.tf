@@ -5,6 +5,8 @@ resource "aws_appautoscaling_target" "ecs_target" {
   scalable_dimension = "ecs:service:DesiredCount"
   service_namespace  = "ecs"
   role_arn = aws_iam_role.ecs-autoscaler-role.arn
+
+  depends_on = [module.wordpress]
 }
 
 resource "aws_appautoscaling_policy" "ecs_cpu_policy" {
